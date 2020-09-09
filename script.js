@@ -6,15 +6,15 @@ window.addEventListener("load",function() {
         .then((response) => response.json())
         .then((json) => {
             let tally = 0;
-            json.sort((a, b) => b.hoursInSpace-a.hoursInSpace)
+            json.sort((a, b) => b.hoursInSpace-a.hoursInSpace);
             const profile = document.querySelector('#container');
             while (tally < json.length) {
 
                 let activeColor;
                 if (json[tally]["active"]) {
-                    activeColor = ` style="color:green;"`
+                    activeColor = ` style="color:green;"`;
                 } else {
-                    activeColor = ` style="color:red;"`
+                    activeColor = ` style="color:red;"`;
                 }
 
                 profile.innerHTML += `
@@ -32,9 +32,8 @@ window.addEventListener("load",function() {
                 `
                 tally += 1
             }
-
+            profile.innerHTML += `
+            <br><h2>Total Astronauts: ${json.length}</h2>
+            `
          });
 });
-
-
-
